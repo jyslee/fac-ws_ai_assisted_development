@@ -61,7 +61,7 @@ Follow these four steps consistently throughout the workshop:
 - **Repository Setup**: Following [Getting Started](#getting-started)
 - **Specification Development**:
   - Initialise a new instance of Claude Code. Use the [GENERATE SPECS](PROMPTS.md#generate-specs) prompt to have a conversation with Claude and determine the specifications of your project.
-  - Use [SPEC WRAP-UP](PROMPTS.md#spec-wrap-up) prompt - this should create `FUNCTIONAL.md`, `ARCHITECTURE.md`, and `CLAUDE.md` files.
+  - At the **end** of the conversation, use the [SPEC WRAP-UP](PROMPTS.md#spec-wrap-up) prompt - this should create `FUNCTIONAL.md`, `ARCHITECTURE.md`, and `CLAUDE.md` files.
 
 > **Output**: Initial documentation pushed to repo
 
@@ -135,6 +135,7 @@ Follow these four steps consistently throughout the workshop:
 #### Common Pitfalls
 
 AI code generators often struggle with:
+
 - Anything to do with setting up projects, installing dependencies
 - Being too ambitious, agreeing to everything
 - Staying inside the scope when working on a task
