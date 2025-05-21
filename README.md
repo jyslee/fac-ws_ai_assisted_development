@@ -60,8 +60,8 @@ Follow these four steps consistently throughout the workshop:
 - **Pair Formation**: Form teams (1 frontend + 1 backend developer)
 - **Repository Setup**: Following [Getting Started](#getting-started)
 - **Specification Development**:
-  - Initialise a new instance of Claude Code. Use the GENERATE SPECS prompt to have a conversation with Claude and determine the specifications of your project.
-  - Use SPEC WRAP-UP prompt - this should create `FUNCTIONAL.md`, `ARCHITECTURE.md`, and `CLAUDE.md` files.
+  - Initialise a new instance of Claude Code. Use the [GENERATE SPECS](PROMPTS.md#generate-specs) prompt to have a conversation with Claude and determine the specifications of your project.
+  - Use [SPEC WRAP-UP](PROMPTS.md#spec-wrap-up) prompt - this should create `FUNCTIONAL.md`, `ARCHITECTURE.md`, and `CLAUDE.md` files.
 
 > **Output**: Initial documentation pushed to repo
 
@@ -70,7 +70,7 @@ Follow these four steps consistently throughout the workshop:
 > [!WARNING]  
 > Set up your environment, install your dependencies etc. **manually**. AI can be terrible at this and using AI for setup could add a lot of config issues to your project before you can even get started.
 
-- Use the GENERATE TO-DO prompt to create `TO-DO.md`. Remember to follow the IQRE methodology! Check that your tasks actually make sense so that you don't end up with a lot of vague, impossibly scoped tasks that no one could follow!
+- Use the [GENERATE TO-DO](PROMPTS.md#generate-to-do) prompt to create `TO-DO.md`. Remember to follow the IQRE methodology! Check that your tasks actually make sense so that you don't end up with a lot of vague, impossibly scoped tasks that no one could follow!
 - Set up environment, frameworks, folder structure, install dependencies
 
 - Review tasks for dependencies and overlaps
@@ -81,10 +81,10 @@ Follow these four steps consistently throughout the workshop:
 
 **Per Task Process**:
 
-1. Use KICKOFF/REFRESH MEMORY prompt
+1. Use [KICKOFF/REFRESH MEMORY](PROMPTS.md#kickoff--refresh-memory) prompt
 2. Implement features
 3. Make sure to review constantly
-4. Use CONTEXT RESET after task completion
+4. Use [CONTEXT RESET](PROMPTS.md#context-reset) after task completion
 
 **Between Sessions**:
 
@@ -117,7 +117,7 @@ Follow these four steps consistently throughout the workshop:
 #### AI Collaboration
 
 - **Explicit Prompting**: Always tell Claude which files to reference (it won't do this automatically)
-- **Context Management**: Use CONTEXT RESET prompt to maintain clarity
+- **Context Management**: Use [CONTEXT RESET](PROMPTS.md#context-reset) prompt to maintain clarity
 - **Standards Evolution**: Update `CLAUDE.md` when discovering new patterns
 
 #### Quality Assurance
