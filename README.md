@@ -26,7 +26,7 @@
 
 ### Overview
 
-In this workshop, you'll work in human-AI pairs to build a travel planning application using Claude Code as your AI partner. The focus is on practicing effective AI-assisted development, improving prompt hygiene, and fostering human oversight while collaborating with AI.
+In this workshop, you'll build a travel planning application using Claude Code as your AI partner. The focus is on practicing effective AI-assisted development, improving prompt hygiene, and fostering human oversight while collaborating with AI.
 
 ### Getting Started
 
