@@ -36,9 +36,7 @@ Create a new repository [using this repository as a template](https://github.com
 
 Details of the task are contained in the [brief](BRIEF.md).
 
-## Human-AI Pair-Programming: A Rough Guide
-
-### IQRE Process
+## IQRE Process
 
 Follow these four steps consistently throughout the workshop:
 
@@ -57,7 +55,6 @@ Follow these four steps consistently throughout the workshop:
 
 #### CONCEPTION
 
-- **Pair Formation**: Form teams (1 frontend + 1 backend developer)
 - **Repository Setup**: Following [Getting Started](#getting-started)
 - **Specification Development**:
   - Initialise a new instance of Claude Code. Use the [GENERATE SPECS](PROMPTS.md#generate-specs) prompt to have a conversation with Claude and determine the specifications of your project.
@@ -72,7 +69,6 @@ Follow these four steps consistently throughout the workshop:
 
 - Use the [GENERATE TO-DO](PROMPTS.md#generate-to-do) prompt to create `TO-DO.md`. Remember to follow the IQRE methodology! Check that your tasks actually make sense so that you don't end up with a lot of vague, impossibly scoped tasks that no one could follow!
 - Set up environment, frameworks, folder structure, install dependencies
-
 - Review tasks for dependencies and overlaps
 
 > **Output**: Ready-to-code environment with structured to-do list
