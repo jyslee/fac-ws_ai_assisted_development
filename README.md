@@ -84,7 +84,6 @@ Follow these four steps consistently throughout the workshop:
 
 **Between Sessions**:
 
-- Coordinate dependencies with teammate
 - Update `CLAUDE.md` with learned standards
 
 > **Output**: Incremental feature completion

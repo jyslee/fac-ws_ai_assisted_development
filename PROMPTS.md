@@ -5,7 +5,7 @@
 
 ## Conception
 
-The first step is to develop your own set of specifications, requirements and standards for this project. To do this you will converse as a team with Claude and produce 4 structured outputs:
+The first step is to develop your own set of specifications, requirements and standards for this project. To do this you will converse with Claude and produce 4 structured outputs:
 
 1. **FUNCTIONAL.md** - Complete functional requirements
 2. **ARCHITECTURE.md** - Detailed project architecture
@@ -74,7 +74,7 @@ Each to-do task should be numbered sequentially, and include:
 
 ## Implementation
 
-During implementation, there are a number of prompts you can use at the start of each task (KICKOFF / REFRESH MEMORY) or after each task (CONTEXT RESET). Included is also a DEPENDENCY CHECK prompt to be used if anything is unclear, remember to also check in with your teammate regularly to iron out anything that is unclear or overlapping.
+During implementation, there are a number of prompts you can use at the start of each task (KICKOFF / REFRESH MEMORY) or after each task (CONTEXT RESET). Included is also a DEPENDENCY CHECK prompt to be used if anything is unclear.
 
 ### KICKOFF / REFRESH MEMORY
 
@@ -119,8 +119,7 @@ Before starting this task [`TASK_NUMBER`], check `TO-DO.md` for dependencies. Th
 
 1. Verify all prerequisite tasks are complete
 2. Confirm our implementation aligns with dependent tasks
-3. Check if any shared interfaces or data structures need coordination with your teammate
-4. Flag any potential conflicts with work in progress
+3. Flag any potential conflicts with work in progress
 
 Only proceed when dependencies are satisfied and coordination is clear.
 ```
