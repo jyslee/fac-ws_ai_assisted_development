@@ -43,7 +43,7 @@ Follow these four steps consistently throughout the workshop:
 1. **Iterate**: Share ideas/request code from AI and develop specifications or features through iteration.
 2. **Question**: Review AI proposal, identify gaps, and refine through follow-up questions.
 3. **Accept**: If AI proposal is acceptable, allow it to generate the code or specs.
-4. **Review/Create**: Understand generated code/specs. If inspired, create a new, enhanced solution based on AI's output.
+4. [**Review/Create**](FYI.md): Understand generated code/specs. If inspired, create a new, enhanced solution based on AI's output.
 5. **Explain**: Present outputs to teammates, emphasising clear foundations and alignment.
 
 ---
@@ -118,7 +118,7 @@ Follow these four steps consistently throughout the workshop:
 #### Quality Assurance
 
 - **Follow IQRE**: Apply the four steps consistently
-- **Review Obsessively**: You need to know everything the AI is generating
+- **Review Obsessively**: You need to know everything the AI is generating - read [AI Code Review Guide](FYI.md) for pointers
 - **Maintain Standards**: Keep `CLAUDE.md` current and concise
 
 #### Success Criteria
