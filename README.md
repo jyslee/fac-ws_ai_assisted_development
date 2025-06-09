@@ -26,7 +26,7 @@
 
 ### Overview
 
-In this workshop, you'll build a travel planning application using Claude Code as your AI partner. The focus is on practicing effective AI-assisted development, improving prompt hygiene, and fostering human oversight while collaborating with AI.
+In this workshop, you'll build a travel planning application using Claude Code or Codex as your AI partner. The focus is on practicing effective AI-assisted development, improving prompt hygiene, and fostering human oversight while collaborating with AI.
 
 ### Getting Started
 
@@ -57,7 +57,7 @@ Follow these four steps consistently throughout the workshop:
 
 - **Repository Setup**: Following [Getting Started](#getting-started)
 - **Specification Development**:
-  - Initialise a new instance of Claude Code. Use the [GENERATE SPECS](PROMPTS.md#generate-specs) prompt to have a conversation with Claude and determine the specifications of your project.
+  - Initialise a new instance of Claude Code or Codex. Use the [GENERATE SPECS](PROMPTS.md#generate-specs) prompt to have a conversation with the LLM and determine the specifications of your project.
   - At the **end** of the conversation, use the [SPEC WRAP-UP](PROMPTS.md#spec-wrap-up) prompt - this should create `FUNCTIONAL.md`, `ARCHITECTURE.md`, and `CLAUDE.md` files.
 
 > **Output**: Initial documentation pushed to repo
@@ -91,7 +91,7 @@ Follow these four steps consistently throughout the workshop:
 #### CONTEXT MANAGEMENT
 
 - Use `HISTORY.md` for context summaries
-- Reset Claude's context window after each task
+- Reset the LLM's context window after each task
 - Maintain clean workspace
 
 > **Output**: Archived context for reference, clean workspace
@@ -111,7 +111,7 @@ Follow these four steps consistently throughout the workshop:
 
 #### AI Collaboration
 
-- **Explicit Prompting**: Always tell Claude which files to reference (it won't do this automatically)
+- **Explicit Prompting**: Always tell the LLM which files to reference (it won't do this automatically)
 - **Context Management**: Use [CONTEXT RESET](PROMPTS.md#context-reset) prompt to maintain clarity
 - **Standards Evolution**: Update `CLAUDE.md` when discovering new patterns
 
