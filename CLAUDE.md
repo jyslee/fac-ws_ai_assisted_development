@@ -104,6 +104,13 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Error Handling**: HTTP exceptions with proper status codes
 - **Validation**: Pydantic models for request/response validation
 
+#### Model Organization Pattern (ESTABLISHED)
+- **`models/tables.py`**: Database models only (SQLModel + table=True)
+- **`models/request.py`**: API input validation models (BaseModel)
+- **`models/response.py`**: API output formatting models (BaseModel)
+- **Validation**: Use @field_validator decorators, not model_post_init
+- **Business Logic**: Keep in table models (computed properties, validation)
+
 #### Frontend Architecture
 - **Component-based**: Reusable Svelte components with clear props
 - **Store-based State**: Typed Svelte stores for shared state management

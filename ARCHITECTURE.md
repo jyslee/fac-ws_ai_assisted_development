@@ -93,10 +93,11 @@ A modern full-stack web application built with FastAPI backend and Svelte fronte
 │   │   │   ├── __init__.py
 │   │   │   ├── trips.py
 │   │   │   └── weather.py
-│   │   └── models/             # SQLModel/Pydantic models
+│   │   └── models/             # SQLModel/Pydantic models (organized by purpose)
 │   │       ├── __init__.py
-│   │       ├── trip.py
-│   │       └── weather.py
+│   │       ├── tables.py       # Database tables (SQLModel + table=True)
+│   │       ├── request.py      # API input validation (BaseModel)
+│   │       └── response.py     # API output formatting (BaseModel)
 │   ├── tests/                  # Test structure (pytest)
 │   │   ├── test_repositories/
 │   │   ├── test_services/
