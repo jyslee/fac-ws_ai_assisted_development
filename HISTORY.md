@@ -237,26 +237,77 @@ def exists(self, trip_id: int) -> bool    # Utility for trip existence validatio
 - **Backend Progress**: 3/4 Data Layer tasks complete (Tasks 4, 5, 6)
 - **Database**: Working SQLite with Trip table operations verified
 
+## Session 6: Weather Repository Implementation
+
+### Completed Tasks
+
+**Task 7: Implement Weather Repository** ✅
+- Created `backend/app/repositories/weather_repository.py` with comprehensive cache management
+- Implemented 30-minute cache expiry logic with automatic cleanup
+- Added location-based cache storage with update-or-create pattern
+- Full type annotations and SQLModel Session integration
+- Tested with actual SQLite database operations
+
+### Key Implementation Details
+
+**WeatherRepository Class Methods**:
+```python
+def get_cached_weather(self, location: str) -> Optional[WeatherCache]     # Retrieves valid cached data
+def store_weather_cache(self, weather_cache: WeatherCache) -> WeatherCache  # Stores/updates cache
+def cleanup_expired_cache(self) -> int                                    # Removes expired entries
+def clear_location_cache(self, location: str) -> bool                     # Clears specific location
+def get_all_cached_locations(self) -> List[str]                          # Lists valid cached locations
+def exists(self, location: str) -> bool                                   # Checks cache existence
+```
+
+**Cache Management Features**:
+- **30-minute expiry**: Uses `WeatherCache.is_expired` property for automatic expiry checking
+- **Smart retrieval**: Auto-deletes expired entries during retrieval
+- **Update-or-create**: Updates existing cache or creates new entries seamlessly
+- **Location-based keys**: Cache entries keyed by location string
+- **Cleanup utilities**: Manual and automatic expired cache management
+
+### Standards Applied
+- **CLAUDE.md compliance**: snake_case methods, PascalCase class, full type annotations
+- **Quality gates**: All ruff, mypy, formatting checks pass (13 auto-fixes applied)
+- **Architecture patterns**: Repository pattern consistent with TripRepository
+- **SQLModel integration**: Proper Session dependency injection and query patterns
+
+### Testing Results
+- Cache storage/retrieval: ✅ Tested with Paris, France sample data
+- Expiry logic: ✅ 30-minute TTL implementation verified
+- Database integration: ✅ SQLite operations working correctly
+- Type safety: ✅ mypy validation passes with strict configuration
+
+### Current State
+- **Task 7 Complete**: Weather Repository fully functional and tested
+- **Phase 2 Complete**: Backend Data Layer 100% complete (Tasks 4, 5, 6, 7)
+- **Next Phase**: Phase 3 - Backend Business Logic (Tasks 8-9)
+- **Database**: Working SQLite with both Trip and WeatherCache tables operational
+
 ## Overall Project Status
 
-### Completed Tasks (6/30)
+### Completed Tasks (7/30)
 ✅ **Task 1**: Backend Project Structure  
 ✅ **Task 2**: Frontend Project Structure  
 ✅ **Task 3**: Development Environment (implicit completion)  
 ✅ **Task 4**: SQLModel Data Models  
 ✅ **Task 5**: Database Connection & Engine  
 ✅ **Task 6**: Trip Repository  
+✅ **Task 7**: Weather Repository  
 
 ### Current Phase
-**Phase 2: Backend Data Layer** (75% complete - 3/4 tasks)
-- Task 7 (Weather Repository) remaining
+**Phase 2: Backend Data Layer** ✅ **COMPLETE** (100% - 4/4 tasks)
 
 ### Next Phase  
 **Phase 3: Backend Business Logic** (Tasks 8-9)
+- Task 8: Implement Trip Service Layer
+- Task 9: Implement Weather Service Layer
 
 ### Key Architectural Decisions Established
 1. **Model Organization**: tables.py, request.py, response.py separation
 2. **Validation Strategy**: Modern Pydantic field_validator decorators
 3. **Repository Pattern**: Clean data access with Optional/boolean error handling
-4. **Type Safety**: Full annotations throughout with mypy strict compliance
-5. **Quality Standards**: ruff + mypy + formatting checks mandatory before commits
+4. **Cache Management**: 30-minute TTL with automatic expiry and cleanup
+5. **Type Safety**: Full annotations throughout with mypy strict compliance
+6. **Quality Standards**: ruff + mypy + formatting checks mandatory before commits
