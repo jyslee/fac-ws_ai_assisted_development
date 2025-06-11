@@ -210,4 +210,14 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Cache Implementation**: Location-based keying with TTL checking using get() function
 - **Error Handling**: Graceful degradation with cached data retention on API failures
 
+### Frontend Component Patterns (ESTABLISHED)
+- **ESLint Compliance**: Use arrow functions instead of function declarations to avoid no-inner-declarations errors
+- **Component Props**: Export props with TypeScript types, provide sensible defaults
+- **Reactive Statements**: Use $: for computed properties and store subscriptions
+- **Event Handling**: Use on:click, on:keypress with proper keyboard navigation (Enter key)
+- **Loading States**: Visual spinners with border-transparent animations for API calls
+- **Error States**: Consistent error UI with retry buttons and clear messaging
+- **Accessibility**: Proper ARIA labels, role attributes, and semantic HTML structure
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints (md:, lg:)
+
 **Complete references and documentation links available in CLAUDE-ARCHIVE.md**
