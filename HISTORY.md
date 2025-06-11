@@ -285,9 +285,79 @@ def exists(self, location: str) -> bool                                   # Chec
 - **Next Phase**: Phase 3 - Backend Business Logic (Tasks 8-9)
 - **Database**: Working SQLite with both Trip and WeatherCache tables operational
 
+## Session 7: Trip Service Layer Implementation
+
+### Completed Tasks
+
+**Task 8: Implement Trip Service Layer** ✅
+- Created `backend/app/services/trip_service.py` with complete business logic layer
+- Implemented all CRUD operations with validation and transformation
+- Added HTTP exception handling with proper status codes
+- Integrated with TripRepository following established patterns
+
+### Key Implementation Details
+
+**TripService Class Methods**:
+```python
+async def get_all_trips(self) -> List[TripResponse]        # Returns formatted trip responses
+async def get_trip_by_id(self, trip_id: int) -> TripResponse  # With 404 handling
+async def create_trip(self, trip_data: TripCreate) -> TripResponse  # With validation
+async def update_trip(self, trip_id: int, updates: TripUpdate) -> TripResponse  # Partial updates
+async def delete_trip(self, trip_id: int) -> None          # With existence validation
+```
+
+**Business Logic Features**:
+- Data transformation between repository models and API responses
+- HTTP exception handling (404 for not found, 400 for validation errors)
+- Integration with TripRepository via dependency injection
+- Automatic timestamp updates for modifications
+
+### Standards Applied
+- **CLAUDE.md compliance**: async methods, HTTP exceptions, full type annotations
+- **Quality gates**: All ruff, mypy, formatting checks pass
+- **Architecture patterns**: Service layer properly abstracts business logic
+
+## Session 8: Weather Service Layer Implementation  
+
+### Completed Tasks
+
+**Task 9: Implement Weather Service Layer** ✅
+- Created `backend/app/services/weather_service.py` with external API integration
+- Implemented cache-first strategy with 30-minute TTL
+- Added OpenWeatherMap API integration with comprehensive error handling
+- Graceful fallback to mock data for development/API failures
+
+### Key Implementation Details
+
+**WeatherService Class Methods**:
+```python
+async def get_weather_for_location(self, location: str) -> WeatherResponse  # Cache-first strategy
+async def _fetch_weather_from_api(self, location: str) -> WeatherResponse   # External API call
+def clear_cache_for_location(self, location: str) -> bool                   # Cache management
+def cleanup_expired_cache(self) -> int                                      # Cleanup utilities
+def get_cached_locations(self) -> List[str]                                 # Cache inspection
+```
+
+**External API Integration**:
+- `httpx.AsyncClient` with 10-second timeout for OpenWeatherMap API
+- Comprehensive error handling: timeout (504), not found (404), auth (503)
+- Request/response parsing via `WeatherAPIRequest` model
+- Temperature and wind speed unit conversions (Kelvin→Celsius, m/s→km/h)
+
+**Cache Strategy**:
+- Cache-first retrieval with automatic expiry validation
+- Store successful API responses for 30-minute reuse  
+- Mock data fallback ensures development workflow without API dependency
+- Proper exception chaining with `raise ... from e` for error traceability
+
+### Standards Applied
+- **CLAUDE.md compliance**: Async patterns, HTTP exceptions, full type annotations
+- **Quality gates**: All ruff, mypy, formatting checks pass (B904 exception handling resolved)
+- **Architecture patterns**: Service layer with repository integration
+
 ## Overall Project Status
 
-### Completed Tasks (7/30)
+### Completed Tasks (9/30)
 ✅ **Task 1**: Backend Project Structure  
 ✅ **Task 2**: Frontend Project Structure  
 ✅ **Task 3**: Development Environment (implicit completion)  
@@ -295,19 +365,30 @@ def exists(self, location: str) -> bool                                   # Chec
 ✅ **Task 5**: Database Connection & Engine  
 ✅ **Task 6**: Trip Repository  
 ✅ **Task 7**: Weather Repository  
+✅ **Task 8**: Trip Service Layer  
+✅ **Task 9**: Weather Service Layer  
 
 ### Current Phase
-**Phase 2: Backend Data Layer** ✅ **COMPLETE** (100% - 4/4 tasks)
+**Phase 3: Backend Business Logic** ✅ **COMPLETE** (100% - 2/2 tasks)
 
 ### Next Phase  
-**Phase 3: Backend Business Logic** (Tasks 8-9)
-- Task 8: Implement Trip Service Layer
-- Task 9: Implement Weather Service Layer
+**Phase 4: Backend API Layer** (Tasks 10-12)
+- Task 10: Implement Trip API Routes
+- Task 11: Implement Weather API Routes  
+- Task 12: Create FastAPI Application Main Module
 
 ### Key Architectural Decisions Established
 1. **Model Organization**: tables.py, request.py, response.py separation
 2. **Validation Strategy**: Modern Pydantic field_validator decorators
 3. **Repository Pattern**: Clean data access with Optional/boolean error handling
-4. **Cache Management**: 30-minute TTL with automatic expiry and cleanup
-5. **Type Safety**: Full annotations throughout with mypy strict compliance
-6. **Quality Standards**: ruff + mypy + formatting checks mandatory before commits
+4. **Service Layer**: Business logic with HTTP exceptions and async operations
+5. **Cache Management**: 30-minute TTL with automatic expiry and cleanup
+6. **External API**: httpx async client with comprehensive error handling and fallbacks
+7. **Type Safety**: Full annotations throughout with mypy strict compliance
+8. **Quality Standards**: ruff + mypy + formatting checks mandatory before commits
+
+### Current State
+- **Backend**: Complete data layer + business logic (9 tasks completed)
+- **Database**: SQLite with Trip and WeatherCache tables operational
+- **Services**: Trip and Weather services ready for API route integration  
+- **Quality**: All code passes strict linting, formatting, and type checking

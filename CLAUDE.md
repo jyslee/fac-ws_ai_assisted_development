@@ -111,6 +111,13 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Validation**: Use @field_validator decorators, not model_post_init
 - **Business Logic**: Keep in table models (computed properties, validation)
 
+#### Service Layer Pattern (ESTABLISHED)
+- **Async Methods**: All service methods should be async for consistency
+- **Exception Chaining**: Use `raise ... from e` for proper error traceability
+- **HTTP Exceptions**: FastAPI HTTPException with appropriate status codes
+- **External APIs**: httpx.AsyncClient with timeout and comprehensive error handling
+- **Cache-First Strategy**: Check cache before external API calls (30-minute TTL)
+
 #### Frontend Architecture
 - **Component-based**: Reusable Svelte components with clear props
 - **Store-based State**: Typed Svelte stores for shared state management
