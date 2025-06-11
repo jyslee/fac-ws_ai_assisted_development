@@ -1,5 +1,30 @@
 **IMPORTANT FOR CLAUDE: Reference this file before implementing anything**
 
+# 🚨 CRITICAL WORKFLOW REMINDERS FOR CLAUDE
+
+## MUST DO AFTER EVERY TASK COMPLETION:
+1. **ALWAYS COMMIT** immediately after completing any task
+2. **RUN QUALITY CHECKS** before committing (ruff, mypy, npm run quality)
+3. **USE PROPER COMMIT FORMAT** with descriptive messages ending with Claude attribution
+4. **CHECK TO-DO.md** to understand current task and mark progress
+
+## COMMIT COMMAND TEMPLATE:
+```bash
+git add [relevant files]
+git commit -m "$(cat <<'EOF'
+[feat/fix]: [brief description] (Task X)
+
+[detailed bullets of what was accomplished]
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
+```
+
+---
+
 # Project: Travel Planning App
 
 ## Project Overview
