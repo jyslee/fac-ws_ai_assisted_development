@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { weatherStore } from '$stores/weather';
-  import type { WeatherData } from '$types/weather';
+  import { weatherStore } from '../stores/weather';
+  import type { WeatherData } from '../types/weather';
 
   export let location: string = '';
   export let showLocationInput: boolean = true;

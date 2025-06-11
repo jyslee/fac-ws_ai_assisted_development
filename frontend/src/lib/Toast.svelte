@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { uiStore } from '$stores/ui';
-  import type { Toast } from '$types/api';
+  import { uiStore } from '../stores/ui';
+  import type { Toast } from '../types/api';
 
   let toasts: Toast[] = [];
 

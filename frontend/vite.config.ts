@@ -9,10 +9,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      $lib: '/src/lib',
-      $types: '/src/types',
-      $stores: '/src/stores',
-      $services: '/src/services',
+      $lib: new URL('./src/lib', import.meta.url).pathname,
+      $types: new URL('./src/types', import.meta.url).pathname,
+      $stores: new URL('./src/stores', import.meta.url).pathname,
+      $services: new URL('./src/services', import.meta.url).pathname,
     },
   },
 });
