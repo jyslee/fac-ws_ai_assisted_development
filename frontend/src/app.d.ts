@@ -1,12 +1,9 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-declare global {
-  namespace App {
-    // interface Error {}
-    // interface Locals {}
-    // interface PageData {}
-    // interface Platform {}
-  }
-}
+// Vite client types
+/// <reference types="vite/client" />
 
-export {};
+// Svelte component types
+declare module '*.svelte' {
+  import type { ComponentType, SvelteComponentTyped } from 'svelte';
+  const component: ComponentType<SvelteComponentTyped>;
+  export default component;
+}

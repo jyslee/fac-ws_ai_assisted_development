@@ -21,13 +21,22 @@ dev = [
     "pytest-asyncio>=0.21.0",
     "mypy>=1.6.0",
     "ruff>=0.1.0",
-    "types-httpx",
 ]
 
 # Ruff configuration
 [tool.ruff]
 target-version = "py38"
 line-length = 88
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "dist",
+    "build",
+]
+
+[tool.ruff.lint]
 select = [
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings
@@ -46,14 +55,15 @@ ignore = [
     "C901",  # too complex
     "W191",  # indentation contains tabs
 ]
-exclude = [
-    ".git",
-    "__pycache__",
-    ".venv",
-    "venv",
-    "dist",
-    "build",
-]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]  # Allow unused imports in __init__.py
+"tests/**/*.py" = ["ARG", "S101"]  # Allow unused arguments and asserts in tests
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+force-sort-within-sections = true
+split-on-trailing-comma = true
 
 [tool.ruff.format]
 quote-style = "double"
@@ -61,14 +71,6 @@ indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
 
-[tool.ruff.isort]
-known-first-party = ["app"]
-force-sort-within-sections = true
-split-on-trailing-comma = true
-
-[tool.ruff.per-file-ignores]
-"__init__.py" = ["F401"]  # Allow unused imports in __init__.py
-"tests/**/*.py" = ["ARG", "S101"]  # Allow unused arguments and asserts in tests
 
 # MyPy configuration
 [tool.mypy]
