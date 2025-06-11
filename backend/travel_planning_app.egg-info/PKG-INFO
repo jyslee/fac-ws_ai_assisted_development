@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: travel-planning-app
+Version: 0.1.0
+Summary: A modern travel planning application
+Requires-Python: >=3.8
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: sqlmodel>=0.0.14
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: pydantic>=2.4.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: mypy>=1.6.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
