@@ -88,6 +88,8 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Use type for unions and primitives**
 - **Export types from dedicated type files**
 - **Use strict TypeScript configuration**
+- **Handle undefined vs null carefully** (use `null` for request bodies to satisfy strict mode)
+- **Create wrapper types when needed** (e.g., APIResult<T> for service responses)
 
 #### Import Standards
 - **External libraries first**
@@ -121,9 +123,10 @@ A modern full-stack travel planning application that allows users to manage trip
 #### Frontend Architecture
 - **Component-based**: Reusable Svelte components with clear props
 - **Store-based State**: Typed Svelte stores for shared state management
-- **Service Layer**: Separate API calls from UI components
-- **Type Safety**: Full TypeScript typing throughout
+- **Service Layer**: Separate API calls from UI components with APIResult<T> pattern
+- **Type Safety**: Full TypeScript typing throughout with strict compliance
 - **Error Handling**: Toast notifications for user feedback
+- **API Communication**: Generic HTTP client with success/error response wrapper
 
 ## Development Workflow
 
