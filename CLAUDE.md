@@ -202,4 +202,12 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Historical Archive**: Completed tasks moved to TODO-ARCHIVE.md
 - **Configuration Archive**: Detailed setup moved to CLAUDE-ARCHIVE.md and ARCHITECTURE-ARCHIVE.md
 
+### Frontend Store Patterns (ESTABLISHED)
+- **Store Structure**: Svelte writable stores with separate action objects
+- **APIResult Integration**: Use APIResult<T> pattern for consistent success/error handling
+- **Toast Integration**: All store operations provide user feedback via toast notifications
+- **TypeScript Strict**: Use null assertion operators (!) when type checking guarantees non-null
+- **Cache Implementation**: Location-based keying with TTL checking using get() function
+- **Error Handling**: Graceful degradation with cached data retention on API failures
+
 **Complete references and documentation links available in CLAUDE-ARCHIVE.md**
