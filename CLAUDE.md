@@ -220,4 +220,10 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Accessibility**: Proper ARIA labels, role attributes, and semantic HTML structure
 - **Responsive Design**: Mobile-first approach with Tailwind breakpoints (md:, lg:)
 
+### Development Environment Requirements (CRITICAL)
+- **PostCSS Configuration**: `postcss.config.js` required for Tailwind CSS processing in Vite
+- **Import Paths**: Use relative imports (`./lib/`, `./stores/`) instead of Vite aliases for reliable HMR
+- **Store Integration**: Import specific action functions, not store objects (e.g., `showSuccessToast`, `weatherActions.getWeatherByLocation`)
+- **Component Debugging**: Test imports step-by-step when HMR errors occur
+
 **Complete references and documentation links available in CLAUDE-ARCHIVE.md**
