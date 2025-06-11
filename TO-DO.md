@@ -135,7 +135,7 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 
 ---
 
-## 🧩 Phase 7: UI Components
+## 🌤️ Phase 7A: Weather UI Implementation (Weather-First Approach)
 
 ### Task 20: Create Toast Notification Component
 **Description**: Build reusable toast notification UI component
@@ -153,9 +153,48 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 - Tailwind CSS styling matches design requirements
 - Smooth animations for show/hide
 
-### Task 21: Create Trip Form Component
+### Task 21: Create Weather Widget Component
+**Description**: Build weather display component with full functionality
+**Dependencies**: Task 19 (Weather Store)
+**Deliverables**:
+- `frontend/src/lib/WeatherWidget.svelte` component
+- Weather information display (temperature, condition, humidity)
+- Loading states with spinner
+- Error state handling
+- Location input functionality
+- Cache status indicators
+
+**Definition of Done**:
+- Weather widget displays temperature, condition, humidity
+- Loading spinner shows during API calls
+- Error states display appropriately
+- Location input triggers weather fetching
+- Visual design matches requirements
+
+### Task 22: Create Basic Weather App Layout
+**Description**: Build simplified App.svelte focused on weather functionality
+**Dependencies**: Tasks 19, 20, 21
+**Deliverables**:
+- `frontend/src/App.svelte` with weather-focused layout
+- Weather widget integration
+- Toast notification integration
+- Location search/input interface
+- Responsive design foundation
+
+**Definition of Done**:
+- Single-page layout displays weather widget
+- Location input field works correctly
+- Toast notifications appear for weather operations
+- Responsive design functions on mobile/desktop
+- Weather caching and loading states visible
+
+---
+
+## 🧳 Phase 7B: Trip UI Implementation
+
+### Task 23: Create Trip Form Component
 **Description**: Build trip creation/editing form component
-**Dependencies**: Task 13
+**Dependencies**: Task 18 (Trip Store)
 **Deliverables**:
 - `frontend/src/lib/TripForm.svelte` component
 - Form validation for all fields
@@ -169,63 +208,48 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 - Both create and edit modes work
 - TypeScript integration complete
 
-### Task 22: Create Trip Card Component
-**Description**: Build trip display card component
-**Dependencies**: Task 13
+### Task 24: Create Trip Card Component
+**Description**: Build trip display card component with weather integration
+**Dependencies**: Tasks 18, 21 (Weather Widget)
 **Deliverables**:
 - `frontend/src/lib/TripCard.svelte` component
 - Trip information display
 - Edit and delete action buttons
 - Duration calculation display
+- Integrated weather widget for destination
 - Responsive design with Tailwind
 
 **Definition of Done**:
 - Trip card displays all relevant trip information
 - Action buttons emit proper events
+- Weather widget shows destination weather
 - Responsive design works on mobile/desktop
 - TypeScript props correctly typed
 
-### Task 23: Create Weather Widget Component
-**Description**: Build weather display component
-**Dependencies**: Task 13
+### Task 25: Complete Trip Management Integration
+**Description**: Enhance App.svelte with full trip management functionality
+**Dependencies**: Tasks 18, 22, 23, 24
 **Deliverables**:
-- `frontend/src/lib/WeatherWidget.svelte` component
-- Weather information display
-- Loading states
-- Error state handling
-- Weather icons/visual indicators
+- Enhanced `frontend/src/App.svelte` with trip management
+- Trip list display with weather integration
+- Modal management for trip forms
+- Complete CRUD operations interface
+- Trip and weather state coordination
 
 **Definition of Done**:
-- Weather widget displays temperature, condition, humidity
-- Loading spinner shows during API calls
-- Error states display appropriately
-- Visual design matches requirements
+- Trip management CRUD operations function completely
+- Weather displays for all trip destinations
+- Modal forms work for trip creation/editing
+- Trip list updates dynamically
+- All stores coordinate properly
 
 ---
 
-## 🏠 Phase 8: Main Application
+## 🚀 Phase 8: Application Finalization
 
-### Task 24: Create Main Application Component
-**Description**: Build the main App.svelte component integrating all features
-**Dependencies**: Tasks 18, 19, 20, 21, 22, 23
-**Deliverables**:
-- `frontend/src/App.svelte` with complete application layout
-- Trip management section
-- Weather display section
-- Modal management for trip forms
-- Integration with all stores
-- Responsive single-page layout
-
-**Definition of Done**:
-- Single-page application layout works
-- Trip management CRUD operations function
-- Weather displays for trip destinations
-- Modal forms work for trip creation/editing
-- Responsive design functions properly
-
-### Task 25: Setup Application Entry Point
-**Description**: Configure main application entry and initialization
-**Dependencies**: Task 24
+### Task 26: Setup Application Entry Point
+**Description**: Configure final application entry and initialization
+**Dependencies**: Task 25
 **Deliverables**:
 - `frontend/src/main.ts` application bootstrap
 - Tailwind CSS integration
@@ -242,9 +266,9 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 
 ## 🔗 Phase 9: Integration & Testing
 
-### Task 26: End-to-End Integration Testing
+### Task 27: End-to-End Integration Testing
 **Description**: Test complete application workflow
-**Dependencies**: Tasks 12 & 25
+**Dependencies**: Tasks 12 & 26
 **Deliverables**:
 - Backend server running on port 8000
 - Frontend server running on port 3000
@@ -259,9 +283,9 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 - No console errors in browser
 - API documentation accessible at localhost:8000/docs
 
-### Task 27: Code Quality Verification
+### Task 28: Code Quality Verification
 **Description**: Run all quality checks and fix any issues
-**Dependencies**: Task 26
+**Dependencies**: Task 27
 **Deliverables**:
 - All backend quality checks pass
 - All frontend quality checks pass
@@ -275,9 +299,9 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 - All code follows naming conventions from CLAUDE.md
 - No debug statements or console.log calls
 
-### Task 28: Performance and Error Handling Verification
+### Task 29: Performance and Error Handling Verification
 **Description**: Test error scenarios and performance requirements
-**Dependencies**: Task 27
+**Dependencies**: Task 28
 **Deliverables**:
 - Weather API failure handling tested
 - Invalid form submission handling tested
@@ -296,17 +320,24 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 ## 📋 Task Summary 
 
 **Completed Phases 1-6**: 19 tasks (Backend + Frontend foundation complete)  
-**Active Phases 7-9**: 9 tasks (UI components + integration)  
-**Core Total**: 28 tasks
+**Active Phases 7A-9**: 10 tasks (Weather-first UI approach + integration)  
+**Core Total**: 29 tasks
 
 **Stretch goals available in TODO-ARCHIVE.md**
 
-## 🎯 Current Focus
+## 🎯 Current Focus - Weather-First Approach
 
-Complete **Phases 7-9 (Tasks 20-28)** for a fully functional travel planning application.
+Complete **Phases 7A-9 (Tasks 20-29)** for a fully functional travel planning application.
 
-**Phase 7** (UI Components): ≈40-60 minutes  
-**Phase 8** (Main Application): ≈20-30 minutes  
-**Phase 9** (Integration & Testing): ≈30 minutes
+**Phase 7A** (Weather UI): ≈25-35 minutes (Tasks 20-22)  
+**Phase 7B** (Trip UI): ≈35-45 minutes (Tasks 23-25)  
+**Phase 8** (App Finalization): ≈10-15 minutes (Task 26)  
+**Phase 9** (Integration & Testing): ≈30 minutes (Tasks 27-29)
 
-Foundation complete - now building the user interface.
+**Benefits of Weather-First Approach**:
+- Faster feedback with working weather display
+- Simpler debugging (read-only data flow)
+- Progressive complexity (display → CRUD operations)
+- Early user value demonstration
+
+Foundation complete - implementing weather UI first, then trip management.
