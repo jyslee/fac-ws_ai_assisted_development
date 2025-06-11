@@ -93,4 +93,25 @@
 - **Quality Standards**: All code follows CLAUDE.md naming and type conventions
 - **Ready For**: Weather Service (Task 16) and Store implementation (Tasks 17-19)
 
-### Next: Task 16 - Weather Service Layer
+## Session 14: Weather Service Layer Implementation
+
+### Task 16 Complete ✅: Weather Service Layer
+- **Created**: `frontend/src/services/weatherService.ts` with WeatherService class
+- **Key Features**: Location-based weather fetching with URL encoding, trip-specific weather endpoint
+- **Pattern**: Type-safe integration using APIResult<WeatherData>, singleton export
+- **Architecture**: Follows established service layer pattern from TripService implementation
+- **Quality**: All ESLint, Prettier, TypeScript checks pass
+
+### Technical Implementation
+- **URL Encoding**: Proper handling of spaces and special characters in location strings
+- **Dual Endpoints**: Support for both `/api/weather/{location}` and `/api/trips/{tripId}/weather`
+- **Error Strategy**: Consistent error handling using established APIResult pattern
+- **Type Safety**: Full TypeScript integration with WeatherData interfaces
+
+### Development Status
+- **Frontend Foundation**: Complete through Task 16 (Types, API Client, Trip Service, Weather Service)
+- **Backend**: Fully operational with REST API at localhost:8000/docs
+- **Quality Standards**: All code follows CLAUDE.md naming and type conventions
+- **Ready For**: Store implementation (Tasks 17-19) and UI component development
+
+### Next: Task 17 - UI Store for Toast Notifications
