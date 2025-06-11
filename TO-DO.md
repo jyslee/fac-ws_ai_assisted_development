@@ -10,201 +10,11 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 
 ---
 
-## 🏗️ Phase 1: Project Foundation
+## Completed Phases ✅
 
-### Task 1: Setup Backend Project Structure
-**Description**: Create the backend directory structure and configuration files
-**Dependencies**: None
-**Deliverables**:
-- Create `backend/` directory with proper folder structure
-- Create `backend/pyproject.toml` with all tooling configuration
-- Create `backend/requirements.txt` with dependencies
-- Create empty `__init__.py` files in all modules
-- Create test folder structure
-
-**Definition of Done**:
-- All directories exist as per ARCHITECTURE.md
-- pyproject.toml contains ruff, mypy, and pytest configuration
-- requirements.txt has all specified dependencies
-- Project structure matches specification exactly
-
-### Task 2: Setup Frontend Project Structure  
-**Description**: Create the frontend directory structure and configuration files
-**Dependencies**: None (can run parallel with Task 1)
-**Deliverables**:
-- Create `frontend/` directory with proper folder structure
-- Create `package.json` with all dependencies and scripts
-- Create `tsconfig.json`, `.eslintrc.cjs`, `.prettierrc`
-- Create `vite.config.ts` and `svelte.config.js`
-- Create `tailwind.config.js`
-
-**Definition of Done**:
-- All directories exist as per ARCHITECTURE.md
-- All configuration files match specification exactly
-- npm install runs without errors
-- npm run quality command exists and is functional
-
-### Task 3: Install and Verify Development Environment
-**Description**: Install dependencies and verify tooling works correctly
-**Dependencies**: Tasks 1 & 2
-**Deliverables**:
-- Install Python dependencies in backend
-- Install npm dependencies in frontend
-- Verify all linting/formatting tools work
-- Test development servers can start
-
-**Definition of Done**:
-- `cd backend && pip install -e ".[dev]"` succeeds
-- `cd frontend && npm install` succeeds
-- Backend quality commands run without errors
-- Frontend quality commands run without errors
-- Both dev servers can start successfully
-
----
-
-## 💾 Phase 2: Backend Data Layer
-
-### Task 4: Create SQLModel Data Models
-**Description**: Implement Trip and Weather database models with full typing
-**Dependencies**: Task 3
-**Deliverables**:
-- `backend/app/models/trip.py` with Trip, TripCreate, TripRead, TripUpdate models
-- `backend/app/models/weather.py` with WeatherCache and WeatherResponse models
-- All models follow SQLModel patterns with validation
-- Full type annotations throughout
-
-**Definition of Done**:
-- All models match specifications in ARCHITECTURE.md
-- Pydantic validation rules implemented (date validation, string lengths)
-- Type checking passes with mypy
-- Linting passes with ruff
-
-### Task 5: Setup Database Connection and Engine
-**Description**: Create database configuration and connection management
-**Dependencies**: Task 4
-**Deliverables**:
-- `backend/app/database.py` with SQLite engine setup
-- Database initialization function
-- Session dependency for FastAPI
-- Environment variable support for database URL
-
-**Definition of Done**:
-- SQLite database creates automatically
-- Session dependency works with FastAPI Depends()
-- Database tables create successfully
-- Connection pooling configured properly
-
-### Task 6: Implement Trip Repository
-**Description**: Create data access layer for trip operations
-**Dependencies**: Task 5
-**Deliverables**:
-- `backend/app/repositories/trip_repository.py` with TripRepository class
-- All CRUD operations (get_all, get_by_id, create, update, delete)
-- Full type annotations on all methods
-- Error handling for database operations
-
-**Definition of Done**:
-- All repository methods work with actual SQLite database
-- Type annotations complete and mypy passes
-- Repository pattern properly separates data access
-- Error handling returns appropriate exceptions
-
-### Task 7: Implement Weather Repository
-**Description**: Create data access layer for weather caching
-**Dependencies**: Task 5
-**Deliverables**:
-- `backend/app/repositories/weather_repository.py` with WeatherRepository class
-- Cache retrieval with 30-minute expiry logic
-- Cache storage and cleanup methods
-- Full type annotations throughout
-
-**Definition of Done**:
-- Weather caching works with SQLite
-- 30-minute expiry logic correctly implemented
-- Cleanup methods remove expired records
-- Type safety maintained throughout
-
----
-
-## 🧠 Phase 3: Backend Business Logic
-
-### Task 8: Implement Trip Service Layer
-**Description**: Create business logic layer for trip management
-**Dependencies**: Task 6
-**Deliverables**:
-- `backend/app/services/trip_service.py` with TripService class
-- Business logic for all trip operations
-- Data validation and transformation
-- Error handling with HTTP exceptions
-- Trip duration calculation
-
-**Definition of Done**:
-- All business rules implemented (date validation, duration calculation)
-- Service layer properly transforms between repository and API models
-- HTTP exceptions used for error handling
-- Full type annotations and mypy compliance
-
-### Task 9: Implement Weather Service Layer
-**Description**: Create business logic for weather operations and external API integration
-**Dependencies**: Task 7
-**Deliverables**:
-- `backend/app/services/weather_service.py` with WeatherService class
-- External weather API integration (OpenWeatherMap)
-- Cache management logic
-- Error handling for API failures
-- Mock weather data for development
-
-**Definition of Done**:
-- Weather API integration works or graceful mock fallback
-- Cache-first strategy implemented
-- Service handles API failures gracefully
-- Type safety maintained for external API responses
-
----
-
-## 🌐 Phase 4: Backend API Layer ✅ COMPLETE
-
-### Task 10: Implement Trip API Routes ✅
-**Status**: Complete - Full CRUD API implemented with validation
-
-### Task 11: Implement Weather API Routes ✅  
-**Status**: Complete - Location and trip-based weather endpoints
-
-### Task 12: Create FastAPI Application Main Module ✅
-**Status**: Complete - CORS, routes, database initialization
-- Proper HTTP status codes (200, 201, 404, 400)
-- Request/response models work correctly
-
-### Task 11: Implement Weather API Routes  
-**Description**: Create FastAPI routes for weather functionality
-**Dependencies**: Task 9
-**Deliverables**:
-- `backend/app/routes/weather.py` with weather endpoints
-- Location-based weather endpoint
-- Trip-specific weather endpoint
-- Error handling for invalid locations
-
-**Definition of Done**:
-- Weather endpoints work with real or mock data
-- Location validation implemented
-- Error responses for invalid locations
-- Integration with trip data for trip weather
-
-### Task 12: Create FastAPI Application Main Module
-**Description**: Integrate all routes and setup main FastAPI application
-**Dependencies**: Tasks 10 & 11
-**Deliverables**:
-- `backend/app/main.py` with complete FastAPI app
-- CORS middleware for frontend communication
-- Route registration
-- Database initialization on startup
-- Dependency injection setup
-
-**Definition of Done**:
-- FastAPI app starts successfully on port 8000
-- All routes accessible and documented at /docs
-- CORS allows frontend on port 3000
-- Database initializes automatically
+**Phases 1-4 Complete** - Backend foundation, data layer, business logic, and API layer
+- Tasks 1-12 complete (see TODO-ARCHIVE.md for details)
+- Backend fully functional with REST API at localhost:8000/docs
 
 ---
 
@@ -481,59 +291,19 @@ Tasks are ordered by dependency to ensure efficient development flow. Complete t
 
 ---
 
-## 🎯 Phase 10: Final Polish (Optional/Stretch Goals)
+## 📋 Task Summary 
 
-### Task 29: Implement Itinerary Planner (Stretch Goal)
-**Description**: Add itinerary planning feature if time permits
-**Dependencies**: Task 28
-**Deliverables**:
-- Itinerary models and API endpoints
-- Itinerary management UI components
-- Integration with existing trip data
+**Completed Phases 1-4**: 12 tasks (Backend complete)  
+**Active Phases 5-9**: 16 tasks (Frontend development)  
+**Core Total**: 28 tasks
 
-**Definition of Done**:
-- Activities can be added to trips
-- Itinerary displays chronologically
-- CRUD operations work for activities
+**Stretch goals available in TODO-ARCHIVE.md**
 
-### Task 30: Enhanced UI Polish (Stretch Goal)
-**Description**: Add advanced UI features and animations
-**Dependencies**: Task 28
-**Deliverables**:
-- Advanced animations and transitions
-- Improved responsive design
-- Enhanced visual design
-- Loading state improvements
+## 🎯 Current Focus
 
-**Definition of Done**:
-- Smooth animations throughout application
-- Excellent mobile responsiveness
-- Professional visual design
-- Enhanced user experience
+Complete **Phases 5-9 (Tasks 13-28)** for a fully functional travel planning application.
 
----
+**Phase 5-8** (Frontend): ≈60-90 minutes  
+**Phase 9** (Integration & Testing): ≈30 minutes
 
-## 📋 Task Summary by Phase
-
-**Phase 1 (Foundation)**: 3 tasks - Project setup and tooling  
-**Phase 2 (Data Layer)**: 4 tasks - Database models and repositories  
-**Phase 3 (Business Logic)**: 2 tasks - Service layer implementation  
-**Phase 4 (API Layer)**: 3 tasks - FastAPI routes and application  
-**Phase 5 (Frontend Foundation)**: 4 tasks - Types and services  
-**Phase 6 (State Management)**: 3 tasks - Svelte stores  
-**Phase 7 (UI Components)**: 4 tasks - Reusable components  
-**Phase 8 (Main Application)**: 2 tasks - App integration  
-**Phase 9 (Integration)**: 3 tasks - Testing and quality  
-**Phase 10 (Polish)**: 2 tasks - Stretch goals  
-
-**Total: 30 tasks** (28 core + 2 stretch)
-
-## 🎯 Workshop Timing
-
-For a 2-3 hour workshop, focus on completing **Phases 1-9 (Tasks 1-28)** which provide a complete, working travel planning application with all core features.
-
-**Phases 1-4** build the complete backend (≈60-90 minutes)  
-**Phases 5-8** build the complete frontend (≈60-90 minutes)  
-**Phase 9** ensures everything works together (≈30 minutes)
-
-This breakdown ensures steady progress with clear milestones and working functionality at each phase completion.
+This provides a complete working application with all core features.

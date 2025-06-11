@@ -163,156 +163,12 @@ A modern full-stack travel planning application that allows users to manage trip
 - **No immediate test implementation** required for workshop
 - **Focus on working features** within time constraints
 
-## Environment Setup
+## Essential Quality Commands
 
-### Required Environment Variables
-```bash
-# Backend (optional for development)
-WEATHER_API_KEY=your_openweathermap_api_key
-DATABASE_URL=sqlite:///./travel_app.db
-```
+**Backend**: `ruff check . --fix && ruff format . && mypy app/`  
+**Frontend**: `npm run quality`
 
-### Setup Commands
-
-#### Backend Setup
-```bash
-cd backend
-pip install -r requirements.txt
-pip install -e ".[dev]"  # Install with dev dependencies
-```
-
-#### Frontend Setup
-```bash
-cd frontend
-npm install
-```
-
-## Common Commands
-
-### Backend Commands
-```bash
-# Development server
-uvicorn app.main:app --reload --port 8000
-
-# Lint and format
-ruff check . --fix
-ruff format .
-
-# Type checking
-mypy app/
-
-# Run tests (when implemented)
-pytest
-
-# All quality checks
-ruff check . && ruff format --check . && mypy app/
-```
-
-### Frontend Commands
-```bash
-# Development server
-npm run dev
-
-# Lint and format
-npm run lint:fix
-npm run format
-
-# Type checking
-npm run type-check
-npm run check
-
-# Run tests (when implemented)
-npm run test
-
-# All quality checks
-npm run quality
-```
-
-## Project Structure
-
-### Backend Structure
-```
-backend/
-├── app/
-│   ├── main.py              # FastAPI app entry point
-│   ├── database.py          # SQLite connection & engine
-│   ├── models/              # SQLModel/Pydantic models
-│   ├── repositories/        # Data access layer
-│   ├── services/            # Business logic layer
-│   └── routes/              # HTTP endpoints
-├── tests/                   # Test structure (pytest)
-└── pyproject.toml           # Python project configuration
-```
-
-### Frontend Structure
-```
-frontend/
-├── src/
-│   ├── lib/                 # Reusable Svelte components
-│   ├── stores/              # Typed state management
-│   ├── services/            # API communication layer
-│   ├── types/               # TypeScript type definitions
-│   ├── App.svelte           # Main application component
-│   └── main.ts              # Application entry point
-├── tests/                   # Test structure (Vitest)
-└── package.json             # Dependencies and scripts
-```
-
-## Review Process Guidelines
-
-Before submitting any code, ensure the following steps are completed:
-
-### 1. Run All Quality Commands
-
-**Backend**:
-```bash
-ruff check . --fix && ruff format . && mypy app/
-```
-
-**Frontend**:
-```bash
-npm run lint:fix && npm run format && npm run type-check && npm run check
-```
-
-### 2. Review Outputs and Iterate
-
-- **Fix all linting errors** before proceeding
-- **Resolve all type errors** before proceeding
-- **Address all formatting issues** automatically
-
-### 3. Assess Compliance
-
-For each standard, explicitly state ✅ or ❌ and explain why:
-
-#### Code Style and Formatting
-- **Backend**: ✅ ruff formatting applied, no style violations
-- **Frontend**: ✅ Prettier formatting applied, ESLint rules followed
-
-#### Naming Conventions
-- **Backend**: ✅ PascalCase classes, snake_case functions/variables
-- **Frontend**: ✅ PascalCase components, camelCase functions/variables
-
-#### Architecture Patterns
-- **Backend**: ✅ Repository pattern, service layer, dependency injection
-- **Frontend**: ✅ Component-based, typed stores, service layer
-- **Reference**: See `ARCHITECTURE.md` for detailed patterns
-
-#### Type Safety
-- **Backend**: ✅ All functions typed, mypy checks pass
-- **Frontend**: ✅ All functions typed, TypeScript strict mode
-
-#### Error Handling
-- **Backend**: ✅ HTTP exceptions with proper status codes
-- **Frontend**: ✅ Toast notifications for user feedback
-
-### 4. Self-Review Checklist
-
-- [ ] **Code follows defined patterns** (Repository, Service, Component)
-- [ ] **No debug/commented code** (console.log, print statements)
-- [ ] **Error handling implemented** (HTTP exceptions, toast notifications)
-- [ ] **Type annotations complete** (all functions and variables)
-- [ ] **Imports organized** (automatic sorting applied)
-- [ ] **Documentation updated** (if adding new features)
+**Complete setup and reference details available in CLAUDE-ARCHIVE.md**
 
 ## Development Principles
 
@@ -331,33 +187,16 @@ For each standard, explicitly state ✅ or ❌ and explain why:
 - **Component reusability**: Shared components for consistent UI
 - **Type safety**: Compile-time error prevention
 
-## Known Issues & Workarounds
+## Learned Standards
 
-### Development Limitations
-- **Weather API**: Requires API key for production use (can use mock data for development)
-- **CORS**: Need to configure CORS middleware for frontend-backend communication
-- **SQLite**: Single-file database suitable for development, not production scale
+### Context Optimization 
+- **Archive Strategy**: Move verbose content to XXX-ARCHIVE.md files for cost reduction
+- **Main Files**: Keep only essential active content for current phase
+- **Reference Pattern**: Use "Complete details available in XXX-ARCHIVE.md" pattern
 
-### Workshop Constraints
-- **Time limit**: 2-3 hours total development time
-- **Feature scope**: Limited to Trip Management + Weather (Itinerary as stretch goal)
-- **Testing**: Test structure only, no implementation required
+### Documentation Efficiency
+- **Focus Active Tasks**: Main files contain only current phase content
+- **Historical Archive**: Completed tasks moved to TODO-ARCHIVE.md
+- **Configuration Archive**: Detailed setup moved to CLAUDE-ARCHIVE.md and ARCHITECTURE-ARCHIVE.md
 
-## References
-
-### Documentation
-- **FastAPI**: https://fastapi.tiangolo.com/
-- **SQLModel**: https://sqlmodel.tiangolo.com/
-- **Svelte**: https://svelte.dev/
-- **TypeScript**: https://www.typescriptlang.org/
-- **Tailwind CSS**: https://tailwindcss.com/
-
-### API Documentation
-- **OpenWeatherMap**: https://openweathermap.org/api
-- **FastAPI Auto Docs**: http://localhost:8000/docs (when running)
-
-### Tool Documentation
-- **ruff**: https://docs.astral.sh/ruff/
-- **mypy**: https://mypy.readthedocs.io/
-- **ESLint**: https://eslint.org/
-- **Prettier**: https://prettier.io/
+**Complete references and documentation links available in CLAUDE-ARCHIVE.md**
