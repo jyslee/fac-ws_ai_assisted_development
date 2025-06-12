@@ -225,5 +225,21 @@ A modern full-stack travel planning application that allows users to manage trip
 - **Import Paths**: Use relative imports (`./lib/`, `./stores/`) instead of Vite aliases for reliable HMR
 - **Store Integration**: Import specific action functions, not store objects (e.g., `showSuccessToast`, `weatherActions.getWeatherByLocation`)
 - **Component Debugging**: Test imports step-by-step when HMR errors occur
+- **ESLint Configuration**: Use `.eslintignore` to exclude build artifacts (dist/, node_modules/)
+
+### Form and Modal Patterns (ESTABLISHED - Phase 7B)
+- **Form Validation**: Client-side validation matching backend rules (dates, lengths, required fields)
+- **Modal Management**: Fixed positioning with backdrop, responsive design, z-index layering
+- **Form Data**: Use const for form objects, mutable properties for individual field updates
+- **Loading States**: Disable form controls during submission, show spinner indicators
+- **Event Dispatching**: TypeScript custom events for component communication
+- **Status Indicators**: Visual status badges with conditional styling (upcoming/current/past)
+
+### Trip Management Patterns (ESTABLISHED - Phase 7B)
+- **Trip Categorization**: Automatic sorting by dates (current/upcoming/past status)
+- **Weather Integration**: Automatic weather loading for trip destinations with retry/cache
+- **CRUD Interface**: Modal forms for create/edit, confirmation dialogs for delete
+- **Component Events**: Proper event bubbling for edit/delete actions in trip cards
+- **Responsive Design**: Grid layouts that adapt to screen size (md:grid-cols-2 lg:grid-cols-3)
 
 **Complete references and documentation links available in CLAUDE-ARCHIVE.md**
